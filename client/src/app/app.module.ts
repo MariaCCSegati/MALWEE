@@ -22,6 +22,8 @@ import { SubgroupComponent } from './subgroup/subgroup.component';
 import { ModalSubgroupComponent } from './modal-subgroup/modal-subgroup.component';
 import { CollectionComponent } from './collection/collection.component';
 import { ModalCollectionComponent } from './modal-collection/modal-collection.component';
+import { ClientComponent } from './client/client.component';
+import { ModalClientComponent } from './modal-client/modal-client.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { ModalCollectionComponent } from './modal-collection/modal-collection.co
     SubgroupComponent,
     ModalSubgroupComponent,
     CollectionComponent,
-    ModalCollectionComponent
+    ModalCollectionComponent,
+    ClientComponent,
+    ModalClientComponent
   ],
   imports: [
     RoutesModule,

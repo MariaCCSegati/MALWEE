@@ -1,0 +1,60 @@
+<mat-tab-group id="modal">
+    <mat-tab label="Inserir">
+        <mat-form-field class="example-full-width" appearance="fill" >
+            <mat-label>Insira o nome</mat-label>
+           <input matInput placeholder="Ex. André Ricardo Rocha" class="inputzin" [(ngModel)]="nome">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill" >
+           <mat-label>Insira o cnpj</mat-label>
+           <input matInput placeholder="Ex. XX. XXX. XXX/0001-XX" class="inputzin" [(ngModel)]="cnpj">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill" >
+           <mat-label>Insira a Razão Social</mat-label>
+           <input matInput placeholder="Ex. Itaú Unibanco Banco Múltiplo S.A" class="inputzin" [(ngModel)]="razaoSocial">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill" >
+           <mat-label>Cliente desde</mat-label>
+           <input matInput placeholder="Ex. 2015" class="inputzin" [(ngModel)]="clienteDesde">
+        </mat-form-field>
+
+          <button mat-raised-button (click)="insert()"><mat-icon>add_circle_outline</mat-icon></button>
+    </mat-tab>
+
+    <mat-tab label="Excluir">
+        <mat-form-field class="example-full-width" appearance="fill" >
+            <mat-label>Insira o ID do cliente</mat-label>
+            <input matInput placeholder="Ex. 1" class="inputzin" [(ngModel)]="id">
+           </mat-form-field>
+           <button mat-raised-button (click)="delete()"><mat-icon>delete</mat-icon></button>
+    </mat-tab>
+
+    <mat-tab label="Editar">
+        <mat-form-field class="example-full-width" appearance="fill" >
+            <mat-label>Insira o ID do cliente</mat-label>
+            <input matInput placeholder="Ex. 1" class="inputzin" [(ngModel)]="id">
+        </mat-form-field>
+        <button mat-raised-button (click)="htmlAdd()"><mat-icon>done_outline</mat-icon></button>
+        <div *ngIf="html == 'true'">
+            <mat-form-field class="example-full-width" appearance="fill" >
+                <mat-label>Insira o nome</mat-label>
+               <input matInput placeholder="Ex. André Ricardo Rocha" class="inputzin" [(ngModel)]="nome">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill" >
+               <mat-label>Insira o cnpj</mat-label>
+               <input matInput placeholder="Ex. XX. XXX. XXX/0001-XX" class="inputzin" [(ngModel)]="cnpj">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill" >
+               <mat-label>Insira a Razão Social</mat-label>
+               <input matInput placeholder="Ex. Itaú Unibanco Banco Múltiplo S.A" class="inputzin" [(ngModel)]="razaoSocial">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill" >
+               <mat-label>Cliente desde</mat-label>
+               <input matInput placeholder="Ex. 2015" class="inputzin" [(ngModel)]="clienteDesde">
+            </mat-form-field>
+               <button mat-raised-button (click)="edit()"><mat-icon>edit</mat-icon></button>
+            </div>
+    </mat-tab>
+  </mat-tab-group>
+
+
+  <button mat-raised-button id="botao" (click)="cancel()">Sair</button>
