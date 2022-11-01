@@ -21,7 +21,7 @@ knl.post('client', async(req, resp) => {
 
     knl.createException('0006', '', !knl.objects.isEmptyArray(result));
 
-    const user = knl.sequelize().models.client.build({
+    const client = knl.sequelize().models.client.build({
         nome : req.body.nome,
         CNPJ : req.body.CNPJ,
         razaoSocial : req.body.razaoSocial,
@@ -29,7 +29,7 @@ knl.post('client', async(req, resp) => {
         status   : 1
     });
 
-    await user.save();
+    await client.save();
     resp.end();
 }, securityConsts.USER_TYPE_PUBLIC);
 

@@ -6,7 +6,7 @@ const knl = require('../knl');
 knl.post('subgroup', async(req, resp) => {
     const schema = Joi.object({
         description : Joi.string().min(1).max(100).required(),
-        fkGroup: Joi.number().min(1).required(),
+       // fkGroup: Joi.number().min(1).required(),
     })
 
     knl.validate(req.body, schema);
@@ -14,19 +14,19 @@ knl.post('subgroup', async(req, resp) => {
     const result = await knl.sequelize().models.subgroup.findAll({
         where : {
             description : req.body.description,
-            fkGroup: req.body.fkGroup
+          //  fkGroup: req.body.fkGroup
         }
     });
 
     knl.createException('0006', '', !knl.objects.isEmptyArray(result));
 
-    const user = knl.sequelize().models.subgroup.build({
+    const subgroup = knl.sequelize().models.subgroup.build({
         description : req.body.description,
-        fkGroup: req.body.fkGroup,
+       // fkGroup: req.body.fkGroup,
         status   : 1
     });
 
-    await user.save();
+    await subgroup.save();
     resp.end();
 }, securityConsts.USER_TYPE_PUBLIC);
 

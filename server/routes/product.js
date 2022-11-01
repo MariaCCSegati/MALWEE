@@ -6,26 +6,35 @@ const knl = require('../knl');
 knl.post('product', async(req, resp) => {
     const schema = Joi.object({
         description : Joi.string().min(1).max(100).required(),
-        preco : Joi.number().min(1).required()
+        preco : Joi.number().min(1).required(),
+        //fkGroup: Joi.number().min(1).required(),
+        //fkSubGroup: Joi.number().min(1).required(),
+        //fkCollection: Joi.number().min(1).required(),
         })
 
     knl.validate(req.body, schema);
 
     const result = await knl.sequelize().models.product.findAll({
         where : {
-            description : req.body.description
+            description : req.body.description,
+            //fkGroup: req.body.fkGroup,
+            //fkSubGroup: req.body.fkSubGroup,
+            //fkCollection: req.body.fkCollection
         } 
     });
 
     knl.createException('0006', '', !knl.objects.isEmptyArray(result));
 
-    const user = knl.sequelize().models.product.build({
+    const product = knl.sequelize().models.product.build({
         description : req.body.description,
         preco : req.body.preco,
-        status   : 1
+        status   : 1,
+        //fkGroup: req.body.fkGroup,
+        //fkSubGroup: req.body.fkSubGroup,
+        //fkCollection: req.body.fkCollection,
     });
 
-    await user.save();
+    await product.save();
     resp.end();
 }, securityConsts.USER_TYPE_PUBLIC);
 
@@ -53,9 +62,12 @@ knl.get('product/:id', async(req, resp) => {
     resp.end();
 }, securityConsts.USER_TYPE_PUBLIC);
 
-knl.put('product/:id', async(req, resp) => {
+knl.put('product', async(req, resp) => {
     
-    const result = await knl.sequelize().models.product.put({
+    const result = await knl.sequelize().models.product.update({
+        description : req.body.description,
+        preco : req.body.preco,
+    },{
         where : {
             id: req.body.id
         }

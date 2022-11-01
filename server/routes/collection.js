@@ -18,12 +18,12 @@ knl.post('collection', async(req, resp) => {
 
     knl.createException('0006', '', !knl.objects.isEmptyArray(result));
 
-    const user = knl.sequelize().models.collection.build({
+    const collection = knl.sequelize().models.collection.build({
         description : req.body.description,
         status   : 1
     });
 
-    await user.save();
+    await collection.save();
     resp.end();
 }, securityConsts.USER_TYPE_PUBLIC);
 

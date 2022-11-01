@@ -18,12 +18,12 @@ knl.post('grupo', async(req, resp) => {
 
     knl.createException('0006', '', !knl.objects.isEmptyArray(result));
 
-    const user = knl.sequelize().models.grupo.build({
+    const group = knl.sequelize().models.grupo.build({
         description : req.body.description,
         status   : 1
     });
 
-    await user.save();
+    await group.save();
     resp.end();
 }, securityConsts.USER_TYPE_PUBLIC);
 
