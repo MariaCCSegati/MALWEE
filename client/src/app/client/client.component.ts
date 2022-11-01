@@ -36,7 +36,7 @@ export class ClientComponent implements OnInit {
 
   openDialog(){
     const dialogRef = this.dialog.open(ModalClientComponent, {
-      width: '550px',
+      width: '700px',
       data: {id : this.id, nome : this.nome, cnpj : this.cnpj, razaoSocial : this.razaoSocial, clienteDesde : this.clienteDesde}
     });
    

@@ -24,6 +24,8 @@ import { CollectionComponent } from './collection/collection.component';
 import { ModalCollectionComponent } from './modal-collection/modal-collection.component';
 import { ClientComponent } from './client/client.component';
 import { ModalClientComponent } from './modal-client/modal-client.component';
+import { ProductComponent } from './product/product.component';
+import { ModalProductComponent } from './modal-product/modal-product.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { ModalClientComponent } from './modal-client/modal-client.component';
     CollectionComponent,
     ModalCollectionComponent,
     ClientComponent,
-    ModalClientComponent
+    ModalClientComponent,
+    ProductComponent,
+    ModalProductComponent
   ],
   imports: [
     RoutesModule,
