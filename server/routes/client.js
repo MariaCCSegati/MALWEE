@@ -57,9 +57,14 @@ knl.get('client/:id', async(req, resp) => {
     resp.end();
 }, securityConsts.USER_TYPE_PUBLIC);
 
-knl.put('client/:id', async(req, resp) => {
+knl.put('client', async(req, resp) => {
     
-    const result = await knl.sequelize().models.client.put({
+    const result = await knl.sequelize().models.client.update({
+        nome : req.body.nome,
+        CNPJ : req.body.cnpj,
+        razaoSocial : req.body.razaoSocial,
+        clienteDesde : req.body.clienteDesde,
+    },{
         where : {
             id: req.body.id
         }
@@ -95,4 +100,4 @@ knl.patch('client/:id', async(req, resp) => {
 
     resp.json(result)
     resp.end();
-})
+}, securityConsts.USER_TYPE_PUBLIC)
