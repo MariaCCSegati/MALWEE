@@ -12,9 +12,8 @@ import { ModalComponent } from '../modal/modal.component';
 export class GroupComponent implements OnInit {
   description:string = '';
   group:Array<any> = []
-  grupinho:string = '';
   modal: string = '';
-  html:string = '';
+  //html:string = '';
   id: any;
 
   constructor(private http : HttpClient, private httpService : HttpService, public dialog: MatDialog) { }
@@ -22,17 +21,16 @@ export class GroupComponent implements OnInit {
   ngOnInit(): void {
     this.list();
     this.get();
-    this.html = 'false';
-    this.modal = 'false';
+  //  this.html = 'false';
   }
 
   async get(){
     this.group = await this.httpService.get('grupo')
   }
 
-  public htmlAdd(){
-    this.html = 'true';
-  }
+  //public htmlAdd(){
+  //  this.html = 'true';
+  //}
 
 
   openDialog(){
@@ -44,7 +42,7 @@ export class GroupComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.grupinho = result;
+      this.get();
     });
   }
 

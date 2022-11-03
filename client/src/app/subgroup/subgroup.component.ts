@@ -19,20 +19,20 @@ export class SubgroupComponent implements OnInit {
   subgroup:Array<any> = []
   fk: number = 0;
   modal: string = '';
-  html:string = '';
+  //html:string = '';
   id: any;
 
   constructor(private http : HttpClient, private httpService : HttpService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.list();
-    this.html = 'false';
+  //  this.html = 'false';
     this.modal = 'false';
   }
 
-  public htmlAdd(){
-    this.html = 'true';
-  }
+ // public htmlAdd(){
+ //   this.html = 'true';
+ // }
 
 
   openDialog(){

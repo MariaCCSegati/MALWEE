@@ -9,37 +9,37 @@ export const MenuItens = [
     {
         path: 'group',
         caption : 'Grupo',
-        icon : 'assessment',
+        icon : ' category',
         component: GroupComponent,
     },
     {
         path: 'subgroup',
         caption : 'Subgrupo',
-        icon : 'assessment',
+        icon : 'group_work',
         component: SubgroupComponent,
     },
     {
         path: 'collection',
         caption : 'Coleção',
-        icon : 'assessment',
+        icon : 'collections_bookmark',
         component: CollectionComponent,
-    },
-    {
-        path: 'client',
-        caption : 'Cliente',
-        icon : 'assessment',
-        component: ClientComponent,
     },
     {
         path: 'product',
         caption : 'Produto',
-        icon : 'assessment',
+        icon : 'style',
         component: ProductComponent,
+    },
+    {
+        path: 'client',
+        caption : 'Cliente',
+        icon : 'people',
+        component: ClientComponent,
     },
     {
         path: 'user',
         caption : 'Usuário',
-        icon : 'person',
+        icon : 'person_pin',
         component: UserComponent,
     }
 ]

@@ -17,7 +17,7 @@ export class ProductComponent implements OnInit {
   produtos:Array<any> = []
   grupinho:string = '';
   modal: string = '';
-  html:string = '';
+  //html:string = '';
   id: any;
 
   constructor(
@@ -26,13 +26,13 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.list();
-    this.html = 'false';
+  //  this.html = 'false';
     this.modal = 'false';
   }
 
-  public htmlAdd(){
-    this.html = 'true';
-  }
+  //public htmlAdd(){
+  //  this.html = 'true';
+  //}
 
   async get(){
     this.produtos = await this.httpService.get('product')
