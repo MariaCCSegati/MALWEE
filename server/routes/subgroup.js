@@ -6,14 +6,14 @@ const knl = require('../knl');
 knl.post('subgroup', async(req, resp) => {
     const schema = Joi.object({
         description : Joi.string().min(1).max(100).required(),
-        fkGroup : Joi.number().required()
+        //fkGroup : Joi.number().required()
     })
 
     knl.validate(req.body, schema);
 
     const user = knl.sequelize().models.subgroup.build({
         description : req.body.description,
-        fkGroup: req.body.fkGroup,
+       // fkGroup: req.body.fkGroup,
         status   : 1
     });
 
