@@ -3,6 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/services/http.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { ModalSubgroupComponent } from '../modal-subgroup/modal-subgroup.component';
+export interface DialogData {
+  description: string;
+  fk : number;
+}
 
 @Component({
   selector: 'app-subgroup',
@@ -13,7 +17,7 @@ export class SubgroupComponent implements OnInit {
 
   description:string = '';
   subgroup:Array<any> = []
-  grupinho:string = '';
+  fk: number = 0;
   modal: string = '';
   html:string = '';
   id: any;
@@ -40,7 +44,7 @@ export class SubgroupComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.grupinho = result;
+      this.list();
     });
   }
 

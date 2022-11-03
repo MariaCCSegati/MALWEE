@@ -30,6 +30,9 @@ export class CollectionComponent implements OnInit {
     this.html = 'true';
   }
 
+  async get(){
+    this.collection = await this.httpService.get('collection')
+  }
 
   openDialog(){
     const dialogRef = this.dialog.open(ModalCollectionComponent, {
@@ -40,7 +43,7 @@ export class CollectionComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.grupinho = result;
+      this.get();
     });
   }
 

@@ -17,7 +17,8 @@
            <input matInput placeholder="Ex. 2015" class="inputzin" [(ngModel)]="clienteDesde">
         </mat-form-field>
 
-          <button mat-raised-button (click)="insert()"><mat-icon>add_circle_outline</mat-icon></button>
+        <button mat-raised-button id="botaozin" (click)="insert()">Confirmar</button>
+
     </mat-tab>
 
     <mat-tab label="Excluir">
@@ -57,4 +58,4 @@
   </mat-tab-group>
 
 
-  <button mat-raised-button id="botao" (click)="cancel()">Sair</button>
+  <button mat-raised-button class="botao" (click)="cancel()">Sair</button>

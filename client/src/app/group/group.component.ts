@@ -21,8 +21,13 @@ export class GroupComponent implements OnInit {
 
   ngOnInit(): void {
     this.list();
+    this.get();
     this.html = 'false';
     this.modal = 'false';
+  }
+
+  async get(){
+    this.group = await this.httpService.get('grupo')
   }
 
   public htmlAdd(){

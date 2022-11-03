@@ -14,6 +14,17 @@
     <p>{{person.description}}</p> 
  </div> -->
 
- <div *ngFor="let person of subgroup | filter:description">
-    <mat-card id="produtos"><p>{{person.id}} - {{person.description}}</p> </mat-card>
- </div>
+ <table id="tabelinha">
+    <tr>
+        <th> ID </th>
+        <th> Produto</th>
+    </tr>
+
+    <tr *ngFor="let person of subgroup | filter:description" >
+        <td> {{person.id}} </td>
+        <td> {{person.description}} </td>
+    </tr> 
+
+    
+</table>
+

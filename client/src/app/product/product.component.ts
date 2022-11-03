@@ -34,17 +34,20 @@ export class ProductComponent implements OnInit {
     this.html = 'true';
   }
 
+  async get(){
+    this.produtos = await this.httpService.get('product')
+  }
 
   openDialog(){
     const dialogRef = this.dialog.open(ModalProductComponent, {
-      width: '700px',
+      width: '550px',
       data: {id : this.id, description : this.description, preco : this.preco}
     });
    
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.grupinho = result;
+      this.get();
     });
   }
 

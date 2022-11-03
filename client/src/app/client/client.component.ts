@@ -29,21 +29,25 @@ export class ClientComponent implements OnInit {
     this.html = 'false';
     this.modal = 'false';
   }
+
   public htmlAdd(){
     this.html = 'true';
   }
 
+  async get(){
+    this.clientes = await this.httpService.get('client')
+  }
 
   openDialog(){
     const dialogRef = this.dialog.open(ModalClientComponent, {
-      width: '700px',
+      width: '500px',
       data: {id : this.id, nome : this.nome, cnpj : this.cnpj, razaoSocial : this.razaoSocial, clienteDesde : this.clienteDesde}
     });
    
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.grupinho = result;
+      this.get();
     });
   }
 

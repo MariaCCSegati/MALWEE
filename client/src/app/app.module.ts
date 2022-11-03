@@ -26,6 +26,8 @@ import { ClientComponent } from './client/client.component';
 import { ModalClientComponent } from './modal-client/modal-client.component';
 import { ProductComponent } from './product/product.component';
 import { ModalProductComponent } from './modal-product/modal-product.component';
+import { ModalUserComponent } from './modal-user/modal-user.component';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { ModalProductComponent } from './modal-product/modal-product.component';
     ClientComponent,
     ModalClientComponent,
     ProductComponent,
-    ModalProductComponent
+    ModalProductComponent,
+    ModalUserComponent,
   ],
   imports: [
     RoutesModule,
