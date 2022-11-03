@@ -1,4 +1,5 @@
 const { Sequelize } = require("sequelize");
+const  groupModels = require("./group-model");
 
 module.exports = (sequelize) => {
     sequelize.define('subgroup', {
@@ -16,9 +17,9 @@ module.exports = (sequelize) => {
             type : Sequelize.INTEGER,
             allowNull : false,
         },
-        //fkGroup:{
-        //    type:Sequelize.INTEGER,
-        //    allowNull:false
-        //}
+        fkGroup:{
+            type:Sequelize.INTEGER,
+            allowNull:false
+        }
     })
 }

@@ -6,29 +6,20 @@ const knl = require('../knl');
 knl.post('subgroup', async(req, resp) => {
     const schema = Joi.object({
         description : Joi.string().min(1).max(100).required(),
-       // fkGroup: Joi.number().min(1).required(),
+        fkGroup : Joi.number().required()
     })
 
     knl.validate(req.body, schema);
 
-    const result = await knl.sequelize().models.subgroup.findAll({
-        where : {
-            description : req.body.description,
-          //  fkGroup: req.body.fkGroup
-        }
-    });
-
-    knl.createException('0006', '', !knl.objects.isEmptyArray(result));
-
-    const subgroup = knl.sequelize().models.subgroup.build({
+    const user = knl.sequelize().models.subgroup.build({
         description : req.body.description,
-       // fkGroup: req.body.fkGroup,
+        fkGroup: req.body.fkGroup,
         status   : 1
     });
 
-    await subgroup.save();
+    await user.save();
     resp.end();
-}, securityConsts.USER_TYPE_PUBLIC);
+});
 
 knl.get('subgroup', async(req, resp) => {
 
@@ -40,7 +31,7 @@ knl.get('subgroup', async(req, resp) => {
     console.log(result);
     resp.json(result);
     resp.end();
-}, securityConsts.USER_TYPE_PUBLIC);
+});
 
 knl.get('subgroup/:id', async(req, resp) => {
 
@@ -52,7 +43,7 @@ knl.get('subgroup/:id', async(req, resp) => {
     console.log(result);
     resp.json(result);
     resp.end();
-}, securityConsts.USER_TYPE_PUBLIC);
+});
 
 knl.put('subgroup', async(req, resp) => {
     
@@ -79,7 +70,7 @@ knl.delete('subgroup/:id', async(req, resp) => {
     resp.json(result);
     console.log(result);
     resp.end();
-}, securityConsts.USER_TYPE_PUBLIC)
+})
 
 knl.patch('subgroup/:id', async(req, resp) => {
 
@@ -93,4 +84,4 @@ knl.patch('subgroup/:id', async(req, resp) => {
 
     resp.json(result)
     resp.end();
-}, securityConsts.USER_TYPE_PUBLIC)
+})

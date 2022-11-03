@@ -32,3 +32,66 @@ knl.post('user', async(req, resp) => {
     await user.save();
     resp.end();
 },securityConsts.USER_TYPE_PUBLIC)
+
+knl.get('user', async(req, resp) => {
+
+    const result = await knl.sequelize().models.Usuario.findAll({
+        where : {
+            status: 1
+        }
+    });
+    console.log(result);
+    resp.json(result);
+    resp.end();
+}, securityConsts.USER_TYPE_PUBLIC);
+
+knl.get('user/:id', async(req, resp) => {
+
+    const result = await knl.sequelize().models.Usuario.findAll({
+        where : {
+            id : req.params.id
+        }
+    });
+    console.log(result);
+    resp.json(result);
+    resp.end();
+}, securityConsts.USER_TYPE_PUBLIC);
+
+knl.put('user', async(req,resp)=>{
+    const result = await knl.sequelize().models.Usuario.update({
+        password  : md5(req.body.password)
+    },{
+        where : {
+            id : req.body.id,
+        }
+    })
+    resp.send(result);
+    resp.end();
+});
+
+knl.delete('user/:id', async(req, resp) => {
+
+    const result = await knl.sequelize().models.Usuario.destroy({
+        where : {
+            id: req.params.id
+        }
+    });
+
+    resp.json(result);
+    console.log(result);
+    resp.end();
+}, securityConsts.USER_TYPE_PUBLIC)
+
+knl.patch('user/:id', async(req, resp) => {
+
+    const result = await knl.sequelize().models.Usuario.update({
+        status : 0
+    },{
+        where : {
+            id: req.params.id,
+        },
+    });
+
+    resp.json(result)
+    resp.end();
+}, securityConsts.USER_TYPE_PUBLIC)
