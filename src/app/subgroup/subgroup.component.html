@@ -1,0 +1,34 @@
+<mat-card>
+        
+    <mat-form-field class="example-full-width" appearance="fill" >
+    <mat-label>Busque um subgrupo</mat-label>
+          <input matInput id="input1" placeholder="Ex. Camiseta" [(ngModel)]="description">
+          <button mat-icon-button class="botao" (click)="openDialog()"><mat-icon>add_circle_outline</mat-icon></button>
+          <button mat-icon-button class="botao" (click)="list()"><mat-icon>refresh</mat-icon></button>
+    </mat-form-field>
+
+        
+</mat-card>
+
+<!--<div *ngFor="let person of group">
+    <p>{{person.description}}</p> 
+ </div> -->
+
+ <table id="tabelinha">
+    <tr>
+        <th> ID </th>
+        <th> Produto </th>
+        <th> Configurações </th>
+    </tr>
+
+    <tr *ngFor="let person of subgroup | filter:description" >
+        <td> {{person.id}} </td>
+        <td> {{person.description}} </td>
+        <button (click)="openDialog2(person.id)"><mat-icon>settings</mat-icon></button>
+    </tr> 
+
+</table>
+
+<!--<div *ngFor="let person of subgroup | filter:description">
+    <button (click)="openDialog()"><mat-card><h1>{{person.id}} - {{person.description}}</h1></mat-card></button>
+</div>-->
